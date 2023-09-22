@@ -1,0 +1,47 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-image: url(./Assets/Background-image.jpg);
+}
+
+.box{
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-top: 10%;
+  padding: 20px;
+  width: 100%;
+}
+
+label{
+  text-align: center;
+}
+
+input{
+  text-align: center;
+  width: 30%;
+}
+
+.heading{
+  color: black;
+}
+
+.form{
+  margin: 30px;
+}
+
+label {
+  display: block;
+}
+
+
+.btn{
+  margin-top: 20px;
+  width: 30%;
+
+}
+
+.time{
+  margin-top: 10px;
+}
