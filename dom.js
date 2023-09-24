@@ -1,63 +1,34 @@
-var itemList = document.querySelector('#items');
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
 
-console.log(itemList.parentNode);
-itemList.parentNode.style.backgroundColor = '#f4f4f4';
-console.log(itemList.parentNode.parentNode.parentNode);
+form.addEventListener('submit' , addItem);
 
-console.log(itemList.parentElement);
-itemList.parentElement.style.backgroundColor = '#f4f4f4';
-console.log(itemList.parentElement.parentElement.parentElement);
+itemList.addEventListener('click', removeItem);
 
-console.log(itemList.childNodes);
+function addItem(e){
+  e.preventDefault();
 
-console.log(itemList.children);
-console.log(itemList.children[1]);
+  
 
-itemList.children[1].style.backgroundColor = 'yellow';
-console.log(itemList.firstChild);
+  var newItem = document.getElementById('item').value;
+  var li = document.createElement('li');
+  li.className = 'list-group-item';
+  li.appendChild(document.createTextNode(newItem));
+  var deletebtn = document.createElement('button');
+  deletebtn.className = 'btn btn-daner btn-sm float-right delete';
+  deletebtn.appendChild(document.createTextNode('X'));
+li.appendChild(deletebtn); 
 
-console.log(itemList.firstElementChild);
-itemList.firstElementChild.textContent = 'Hello 1';
-
-console.log(itemList.firstChild);
-
-console.log(itemList.firstElementChild);
-itemList.firstElementChild.textContent = 'Hello 1';
-
-console.log(itemList.lastChild);
-
-console.log(itemList.lastElementChild);
-itemList.lastElementChild.textContent = 'Hello 1';
-
-console.log(itemList.nextSibling);
-
-console.log(itemList.nextElementSibling);
-
-console.log(itemList.previousSibling);
-
-console.log(itemList.previousElementSibling);
-
-var newDiv = document.createElement('div');
-newDiv.className = 'hello';
-newDiv.id = 'hello1';
-newDiv.setAttribute('title' , 'Hello Div');
-var newDivText = document.createTextNode('Hello world');
-newDiv.appendChild(newDivText);
-console.log(newDiv);
-
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
-
-container.insertBefore(newDiv , h1);
+  itemList.appendChild(li);
 
 
+}
 
-// Adding "Hello world" before "Item Lister"
-var itemListTitle = document.querySelector('#header-title');
-var helloWorldText = document.createTextNode('Hello world ');
-itemListTitle.insertBefore(helloWorldText, itemListTitle.firstChild);
-
-// Adding "Hello 1" before "Item 1"
-var firstItem = document.querySelector('#items li:first-child');
-var hello1Text = document.createTextNode('Hello 1 ');
-firstItem.insertBefore(hello1Text, firstItem.firstChild);
+function removeItem(e){
+  if(e.target.classList.contains('delete')){
+    if(confirm('Are You Sure?')){
+      var li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
