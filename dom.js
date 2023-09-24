@@ -1,29 +1,63 @@
-var header = document.querySelector('#main-header');
-header.style.borderBottom = 'solid 4px #ccc';
+var itemList = document.querySelector('#items');
 
-var input = document.querySelector('input');
-input.value = 'Hello World';
+console.log(itemList.parentNode);
+itemList.parentNode.style.backgroundColor = '#f4f4f4';
+console.log(itemList.parentNode.parentNode.parentNode);
 
-var submit = document.querySelector('input[type="submit"]');
-submit.value = "SEND";
+console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor = '#f4f4f4';
+console.log(itemList.parentElement.parentElement.parentElement);
 
-var item = document.querySelector('.list-group-item');
-item.style.color = 'red';
+console.log(itemList.childNodes);
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.backgroundColor = 'green';
+console.log(itemList.children);
+console.log(itemList.children[1]);
 
-var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-thirdItem.style.display = 'none';
+itemList.children[1].style.backgroundColor = 'yellow';
+console.log(itemList.firstChild);
 
-//queryselectorall
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent = 'Hello 1';
 
-var titles = document.querySelectorAll('li');
-console.log(titles);
-titles[1].fontColor = 'green';
+console.log(itemList.firstChild);
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
-for(var i = 0 ; i < odd.length ; i++){
-  odd[i].style.backgroundColor = '#008000';
-}
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent = 'Hello 1';
 
+console.log(itemList.lastChild);
+
+console.log(itemList.lastElementChild);
+itemList.lastElementChild.textContent = 'Hello 1';
+
+console.log(itemList.nextSibling);
+
+console.log(itemList.nextElementSibling);
+
+console.log(itemList.previousSibling);
+
+console.log(itemList.previousElementSibling);
+
+var newDiv = document.createElement('div');
+newDiv.className = 'hello';
+newDiv.id = 'hello1';
+newDiv.setAttribute('title' , 'Hello Div');
+var newDivText = document.createTextNode('Hello world');
+newDiv.appendChild(newDivText);
+console.log(newDiv);
+
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+container.insertBefore(newDiv , h1);
+
+
+
+// Adding "Hello world" before "Item Lister"
+var itemListTitle = document.querySelector('#header-title');
+var helloWorldText = document.createTextNode('Hello world ');
+itemListTitle.insertBefore(helloWorldText, itemListTitle.firstChild);
+
+// Adding "Hello 1" before "Item 1"
+var firstItem = document.querySelector('#items li:first-child');
+var hello1Text = document.createTextNode('Hello 1 ');
+firstItem.insertBefore(hello1Text, firstItem.firstChild);
