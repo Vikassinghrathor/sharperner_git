@@ -23,18 +23,18 @@
 // Add.style.fontWeight = 'bold';
 // Add.style.color = '#008000';
 
-// GetElementByClassName
+// GetElementByTagName
 
-var items = document.getElementsByClassName('list-group-item');
-console.log(items);
-console.log(items[1]);
+var items = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[1]);
 // items[1].textContent = 'Hello 2';
-items[1].style.fontWeight = 'bold';
+li[1].style.fontWeight = 'bold';
 // items[1].style.backgroundColor = 'green';
-items[2].style.backgroundColor = 'green';
+li[2].style.backgroundColor = 'green';
 
 // items.style.fontWeight = 'bold';
 
-for(let i = 0 ; i < items.length ; i++){
-  items[i].style.fontWeight = 'bold';
+for(let i = 0 ; i < li.length ; i++){
+  li[i].style.fontWeight = 'bold';
 }
