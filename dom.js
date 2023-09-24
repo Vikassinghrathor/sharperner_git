@@ -1,40 +1,29 @@
-// console.log(document.domain);
-// console.log(document.URL);
-// console.log(document.title);
+var header = document.querySelector('#main-header');
+header.style.borderBottom = 'solid 4px #ccc';
 
-//  // document.title = "TODOLIST";
+var input = document.querySelector('input');
+input.value = 'Hello World';
 
-//  console.log(document.doctype);
-//  console.log(document.head);
-//  console.log(document.body);
-//  console.log(document.all);
-//  console.log(document.all[10]);
-//  document.all[10].textContent = 'Hello';
+var submit = document.querySelector('input[type="submit"]');
+submit.value = "SEND";
 
-// var headerTitle = document.getElementById('header-title');
-// var header = document.getElementById('main-header');
-// console.log(headerTitle);
-// headerTitle.textContent = 'List';
+var item = document.querySelector('.list-group-item');
+item.style.color = 'red';
 
-// header.style.borderBottom = 'solid 3px #000';
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.backgroundColor = 'green';
 
+var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
+thirdItem.style.display = 'none';
 
-// var Add = document.getElementsByClassName('title');
-// Add.style.fontWeight = 'bold';
-// Add.style.color = '#008000';
+//queryselectorall
 
-// GetElementByTagName
+var titles = document.querySelectorAll('li');
+console.log(titles);
+titles[1].fontColor = 'green';
 
-var items = document.getElementsByTagName('li');
-console.log(li);
-console.log(li[1]);
-// items[1].textContent = 'Hello 2';
-li[1].style.fontWeight = 'bold';
-// items[1].style.backgroundColor = 'green';
-li[2].style.backgroundColor = 'green';
-
-// items.style.fontWeight = 'bold';
-
-for(let i = 0 ; i < li.length ; i++){
-  li[i].style.fontWeight = 'bold';
+var odd = document.querySelectorAll('li:nth-child(odd)');
+for(var i = 0 ; i < odd.length ; i++){
+  odd[i].style.backgroundColor = '#008000';
 }
+
