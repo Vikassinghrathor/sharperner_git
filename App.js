@@ -27,20 +27,31 @@ const addStudent = (name, email, Phoneno) => {
   return { name, email, Phoneno };
 };
 
-const createStudentElement = ({ name, email, Phoneno }) => {
+
+const createStudentElement = ({ name, email, Phoneno }, index) => {
   // Create elements
   const studentDiv = document.createElement("div");
   const studentName = document.createElement("h2");
   const studentemail = document.createElement("p");
   const studentPhoneno = document.createElement("p");
+  const deleteButton = document.createElement("button");
 
   // Fill the content
   studentName.innerText = "Student name: " + name;
-  studentemail.innerText = "Student age: " + email;
-  studentPhoneno.innerText = "Student roll: " + Phoneno;
+  studentemail.innerText = "Student email: " + email;
+  studentPhoneno.innerText = "Student Phone no: " + Phoneno;
+  deleteButton.innerText = "Delete";
 
-  // Add to the DOM
-  studentDiv.append(studentName, studentemail, studentPhoneno);
+  deleteButton.addEventListener("click", () => {
+    students.splice(index, 1);
+    
+    // Update local storage
+    localStorage.setItem("students", JSON.stringify(students));
+    
+    studentsContainer.removeChild(studentDiv);
+  });
+
+  studentDiv.append(studentName, studentemail, studentPhoneno, deleteButton);
   studentsContainer.appendChild(studentDiv);
 
   studentsContainer.style.display = students.length === 0 ? "none" : "flex";
